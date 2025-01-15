@@ -6,11 +6,15 @@ TagManager:
   tags:
   - Anchor
   - Dialogue Canvas
+  - Explodable
+  - Exploder
+  - UseObject
+  - Destructible
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - explodableLayer
   - Water
   - UI
   - 
