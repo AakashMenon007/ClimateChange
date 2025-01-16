@@ -6,10 +6,17 @@ TagManager:
   tags:
   - Anchor
   - Dialogue Canvas
+<<<<<<< HEAD
   - Explodable
   - Exploder
   - UseObject
   - Destructible
+=======
+  - Button1
+  - Button2
+  - Button3
+  - Button4
+>>>>>>> 2646d81ef19fb45636c2e7283d25ecbd68681c7b
   layers:
   - Default
   - TransparentFX

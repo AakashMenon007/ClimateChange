@@ -2763,6 +2763,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "SeismoButton",
+            "id": "8c1369d3-1a63-423d-a14d-d8f4aac25033",
+            "actions": [
+                {
+                    "name": "SeismoButton",
+                    "type": "Button",
+                    "id": "2149deac-97e2-4298-9975-884e8d97c82b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a0d9a131-59e4-405a-b30b-c73e6b593b6a",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeismoButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
