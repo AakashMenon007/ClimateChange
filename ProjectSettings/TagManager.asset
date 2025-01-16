@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Anchor
-  - Dialogue Canvas
-  - Button1
-  - Button2
-  - Button3
-  - Button4
+  tags: []
   layers:
   - Default
   - TransparentFX
