@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Fantastic City Generator/Scenes/Scene-Demo.unity
     guid: 32b17ea901274364cbd9f28096ee37b5
   - enabled: 1
-    path: Assets/Scenes/Lab.unity
+    path: Assets/Scenes/Lab Talha.unity
     guid: a65000546a6aa294f94cccec25323f02
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
