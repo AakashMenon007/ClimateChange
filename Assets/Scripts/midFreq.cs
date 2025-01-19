@@ -14,6 +14,18 @@ public class MidFrequencyEarthquake : MonoBehaviour
     // List of BuildingCollapse scripts for multiple buildings
     public List<BuildingCollapse> buildingCollapses;
 
+    // Earthquake sound effect
+    public AudioClip midFrequencySound;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        // Initialize AudioSource
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = midFrequencySound;
+        audioSource.loop = true; // Loop the sound for the duration of the earthquake
+    }
+
     void Update()
     {
         if (isEarthquakeActive)
@@ -27,9 +39,7 @@ public class MidFrequencyEarthquake : MonoBehaviour
             }
             else
             {
-                isEarthquakeActive = false;
-                elapsedTime = 0f;
-                enabled = false; // Disable the script when done
+                StopEarthquake();
             }
         }
     }
@@ -41,6 +51,12 @@ public class MidFrequencyEarthquake : MonoBehaviour
         elapsedTime = 0f;
         enabled = true; // Enable the script
 
+        // Play sound effect
+        if (audioSource != null && midFrequencySound != null)
+        {
+            audioSource.Play();
+        }
+
         // Notify all building collapse systems
         foreach (var buildingCollapse in buildingCollapses)
         {
@@ -48,6 +64,19 @@ public class MidFrequencyEarthquake : MonoBehaviour
             {
                 buildingCollapse.OnEarthquakeTriggered(magnitude);
             }
+        }
+    }
+
+    private void StopEarthquake()
+    {
+        isEarthquakeActive = false;
+        elapsedTime = 0f;
+        enabled = false; // Disable the script
+
+        // Stop sound effect
+        if (audioSource != null)
+        {
+            audioSource.Stop();
         }
     }
 
