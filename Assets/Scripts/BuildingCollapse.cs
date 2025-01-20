@@ -10,6 +10,8 @@ public class BuildingCollapse : MonoBehaviour
     public bool isCollapsed = false;
 
     private BoxCollider buildingCollider;
+    private Vector3[] initialPositions;
+    private Quaternion[] initialRotations;
 
     private void Start()
     {
@@ -20,6 +22,15 @@ public class BuildingCollapse : MonoBehaviour
         }
 
         buildingCollider = GetComponent<BoxCollider>();
+
+        // Save initial positions and rotations of building parts
+        initialPositions = new Vector3[buildingParts.Length];
+        initialRotations = new Quaternion[buildingParts.Length];
+        for (int i = 0; i < buildingParts.Length; i++)
+        {
+            initialPositions[i] = buildingParts[i].transform.localPosition;
+            initialRotations[i] = buildingParts[i].transform.localRotation;
+        }
     }
 
     public void OnEarthquakeTriggered(float magnitude)
@@ -76,6 +87,32 @@ public class BuildingCollapse : MonoBehaviour
         else
         {
             Debug.LogWarning("collapseVFXPrefab is not assigned in the Inspector.");
+        }
+    }
+
+    // Reset building to its original state
+    public void ResetBuilding()
+    {
+        isCollapsed = false;
+
+        if (buildingCollider != null)
+        {
+            buildingCollider.enabled = true;
+        }
+
+        for (int i = 0; i < buildingParts.Length; i++)
+        {
+            if (buildingParts[i] != null)
+            {
+                // Reset position and rotation
+                buildingParts[i].transform.localPosition = initialPositions[i];
+                buildingParts[i].transform.localRotation = initialRotations[i];
+
+                // Make parts kinematic again
+                buildingParts[i].isKinematic = true;
+                buildingParts[i].velocity = Vector3.zero;
+                buildingParts[i].angularVelocity = Vector3.zero;
+            }
         }
     }
 }
