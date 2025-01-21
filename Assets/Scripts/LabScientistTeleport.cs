@@ -1,11 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class LabScientistTeleport : MonoBehaviour
 {
     public Transform target;            // Target position for teleportation
     public GameObject teleportVFX;     // VFX prefab to play during teleportation
+    public GameObject scientist;
 
     private void Start()
     {
@@ -19,33 +20,29 @@ public class LabScientistTeleport : MonoBehaviour
             Debug.LogError("Teleport VFX prefab is not assigned!");
         }
     }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T)) // Press 'T' to teleport
-        {
-            GetComponent<LabScientistTeleport>().Teleport();
-        }
-    }
-
+     
+    [YarnCommand("teleport")]
     public void Teleport()
     {
+        Debug.Log("Calling from Yarn script");
         StartCoroutine(TeleportSequence());
     }
+
+
 
     private IEnumerator TeleportSequence()
     {
         // Step 1: Play VFX at the current position
-        PlayVFX(transform.position);
+        PlayVFX(scientist.transform.position);
 
         // Step 2: Wait for the duration of the VFX before teleporting
         yield return new WaitForSeconds(GetVFXDuration());
 
         // Step 3: Teleport the Lab Scientist to the target position
-        transform.position = target.position;
+        scientist.transform.position = target.position;
 
         // Step 4: Play VFX at the target position
-        PlayVFX(transform.position);
+        PlayVFX(scientist.transform.position);
     }
 
     private void PlayVFX(Vector3 position)
@@ -73,5 +70,3 @@ public class LabScientistTeleport : MonoBehaviour
         return 1f; // Default duration if no particle system is found
     }
 }
-
-

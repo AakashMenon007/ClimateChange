@@ -1,15 +1,32 @@
-﻿title: LabScientist
+﻿title: Start
+tags:
+---
+h
+===
+
+
+title: LabScientistIntro
 tags:
 ---
 
 Welcome! I'm glad you're here. Did you know earthquakes are one of the most powerful forces of nature? They occur when tectonic plates beneath the Earth's surface shift, releasing massive amounts of energy. But here's where it gets interesting - climate change may be influencing these events. #line:LabScientistIntro1
 As global temperatures rise, melting glaciers and shifting water levels can alter the balance of pressure on the Earth's crust. This destabilisation can trigger fault lines, increasing the likelihood of earthquakes in certain areas. #line:LabScientistIntro2
-It's a stark reminder of how interconnected our planet is. Understanding these links helps us prepare and reduce the risks. Let's take a quick quiz to understand more about earthquakes. #line:LabScientistIntro3
+It's a stark reminder of how interconnected our planet is. Understanding these links helps us prepare and reduce the risks...follow me, I have something to show you. #line:LabScientistIntro3
+
+<<teleport YarnCommand>>
+
+<<jump SeismoCube>>
 
 ===
 
 
+title: SeismoCube
+tags:
+---
 
+h
+
+===
 
 
 
