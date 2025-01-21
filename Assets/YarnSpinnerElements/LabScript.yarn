@@ -15,16 +15,16 @@ It's a stark reminder of how interconnected our planet is. Understanding these l
 
 <<teleport YarnCommand>>
 
-<<jump SeismoCube>>
-
 ===
 
 
-title: SeismoCube
+title: Seismograph
 tags:
 ---
 
-h
+A seismograph is a special tool we use to measure earthquakes. It works like this...when the ground shakes, the seismograph senses the vibrations and records them as wavy lines. The bigger the waves, the stronger the earthquake. It's like taking the Earth's heartbeat! #line:LabScientistSeismo1
+Scientists use these recordings to figure out how powerful an earthquake is and where it started. It's a really important way to understand what's happening deep underground. #line:LabScientistSeismo2
+Try pushing the green buttons to see a visualisation of this! #line:LabScientistSeismo3
 
 ===
 

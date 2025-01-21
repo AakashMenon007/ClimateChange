@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
-using static UnityEngine.GraphicsBuffer;
-
 
 public class NPC3D : MonoBehaviour
 {
@@ -13,8 +11,8 @@ public class NPC3D : MonoBehaviour
     [Header("Yarn Specific")]
     public string talkToNode = "";
     public YarnProject scriptToLoad;
-    public DialogueRunner dialogueRunner; //refernce to the dialogue control
-    public GameObject dialogueCanvas; //refernce to the canvas
+    public DialogueRunner dialogueRunner; // Reference to the dialogue control
+    public GameObject dialogueCanvas;    // Reference to the canvas
 
     [Header("Dialogue Canvas")]
     public Vector3 PostionSpeachBubble = new Vector3(0f, 2.0f, 0.0f);
@@ -22,51 +20,20 @@ public class NPC3D : MonoBehaviour
     private bool canvasActive;
     private GameObject playerGameObject;
 
+    private bool nodeUsed = false; // Flag for tracking if the node has been used
 
-    /// </summary>
-    // Start is called before the first frame update
     void Start()
     {
-        dialogueCanvas = GameObject.FindGameObjectWithTag("Dialogue Canvas"); 
+        dialogueCanvas = GameObject.FindGameObjectWithTag("Dialogue Canvas");
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
 
-
-        if (scriptToLoad == null)
+        if (scriptToLoad != null && dialogueRunner != null)
         {
-            Debug.LogError("NPC3D not set up with yarn scriptToLoad ", this);
-        }
-
-        if (string.IsNullOrEmpty(characterName))
-        {
-            Debug.LogWarning("NPC3D not set up with characterName", this);
-        }
-
-        if (string.IsNullOrEmpty(talkToNode))
-        {
-            Debug.LogError("NPC3D not set up with talkToNode", this);
-        }
-
-        if (dialogueRunner == null)
-        {
-            Debug.LogError("dialogueRunner not set up", this);
-        }
-        
-        if (dialogueCanvas == null)
-        {
-            Debug.LogError("Dialogue Canvas not set up", this);
-        }
-
-        if(playerGameObject == null)
-        {
-            Debug.LogError("Player Game Object not set up", this);
-        }
-
-        if (scriptToLoad != null && dialogueRunner != null && dialogueRunner != null)
-        {
-            dialogueRunner.yarnProject = scriptToLoad; //adds the script to the dialogue system
+            dialogueRunner.yarnProject = scriptToLoad; // Adds the script to the dialogue system
         }
     }
+
     void Update()
     {
         if (canvasActive)
@@ -83,16 +50,16 @@ public class NPC3D : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if other is player
-        if (other.gameObject.CompareTag("Player"))
+        // Check if the player enters and if the node is allowed to run
+        if (other.gameObject.CompareTag("Player") && !nodeUsed)
         {
             if (!string.IsNullOrEmpty(talkToNode))
             {
                 if (dialogueCanvas != null)
                 {
-                    //move the Canvas to the object and off set
+                    // Move the Canvas to the object and offset
                     canvasActive = true;
-                    dialogueCanvas.transform.SetParent(transform); // use the root to prevent scaling
+                    dialogueCanvas.transform.SetParent(transform); // Use the root to prevent scaling
                     dialogueCanvas.GetComponent<RectTransform>().anchoredPosition3D = transform.TransformVector(PostionSpeachBubble);
                 }
 
@@ -100,8 +67,12 @@ public class NPC3D : MonoBehaviour
                 {
                     dialogueRunner.Stop();
                 }
-                Debug.Log("start dialogue");
+
+                Debug.Log($"Starting dialogue for node: {talkToNode}");
                 dialogueRunner.StartDialogue(talkToNode);
+
+                // Mark the node as used after starting the dialogue
+                nodeUsed = true;
             }
         }
     }
@@ -112,8 +83,15 @@ public class NPC3D : MonoBehaviour
         {
             canvasActive = false;
             dialogueRunner.Stop();
-
         }
     }
-}
 
+    /// <summary>
+    /// Resets the node usage to allow the dialogue to trigger again.
+    /// </summary>
+    public void ResetNodeUsage()
+    {
+        nodeUsed = false;
+        Debug.Log("Node usage reset, dialogue can be triggered again.");
+    }
+}

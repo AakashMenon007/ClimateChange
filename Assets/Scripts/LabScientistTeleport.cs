@@ -8,6 +8,8 @@ public class LabScientistTeleport : MonoBehaviour
     public GameObject teleportVFX;     // VFX prefab to play during teleportation
     public GameObject scientist;
 
+    private NPC3D npc3D;
+
     private void Start()
     {
         if (target == null)
@@ -19,8 +21,21 @@ public class LabScientistTeleport : MonoBehaviour
         {
             Debug.LogError("Teleport VFX prefab is not assigned!");
         }
+
+        if (scientist != null)
+        {
+            npc3D = scientist.GetComponent<NPC3D>();
+            if (npc3D == null)
+            {
+                Debug.LogError("NPC3D script is not attached to the scientist!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Scientist GameObject is not assigned!");
+        }
     }
-     
+
     [YarnCommand("teleport")]
     public void Teleport()
     {
@@ -28,10 +43,9 @@ public class LabScientistTeleport : MonoBehaviour
         StartCoroutine(TeleportSequence());
     }
 
-
-
     private IEnumerator TeleportSequence()
     {
+
         // Step 1: Play VFX at the current position
         PlayVFX(scientist.transform.position);
 
@@ -43,6 +57,15 @@ public class LabScientistTeleport : MonoBehaviour
 
         // Step 4: Play VFX at the target position
         PlayVFX(scientist.transform.position);
+
+        //Step 5: Update the talkToNode in NPC3D AFTER teleportation
+        if (npc3D != null)
+        {
+            npc3D.talkToNode = "Seismograph";
+            npc3D.ResetNodeUsage(); // Allow re-triggering the node
+            Debug.Log("Updated talkToNode to: Seismograph");
+        }
+
     }
 
     private void PlayVFX(Vector3 position)

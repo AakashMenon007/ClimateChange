@@ -2158,8 +2158,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 2, z: 3.1827226}
-  m_Center: {x: 0.00000012403511, y: 0.6285927, z: -0.12794709}
+  m_Size: {x: 3.092491, y: 2, z: 3.1827226}
+  m_Center: {x: 0.029185414, y: 0.6285927, z: -0.12794709}
 --- !u!114 &500217854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6688,6 +6688,10 @@ PrefabInstance:
     - target: {fileID: 2218496723442559054, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6873022368256633593, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
