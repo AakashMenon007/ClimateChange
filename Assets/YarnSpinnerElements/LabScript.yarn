@@ -13,7 +13,25 @@ Welcome! I'm glad you're here. Did you know earthquakes are one of the most powe
 As global temperatures rise, melting glaciers and shifting water levels can alter the balance of pressure on the Earth's crust. This destabilisation can trigger fault lines, increasing the likelihood of earthquakes in certain areas. #line:LabScientistIntro2
 It's a stark reminder of how interconnected our planet is. Understanding these links helps us prepare and reduce the risks...follow me, I have something to show you. #line:LabScientistIntro3
 
-<<teleport YarnCommand>>
+<<teleportVolcano YarnCommand>>
+
+===
+
+title: Volcano
+tags:
+---
+Did you know earthquakes can cause both volcanoes and tsunamis? Let me explain how. Earthquakes happen when tectonic plates under the Earth's surface move suddenly. This can release a lot of energy. #line:Volcano1
+
+<<volcano YarnCommand>>
+
+Sometimes, this energy causes magma to rise to the surface, creating a volcano. It's like shaking a bottle of soda — the pressure forces the liquid out. #line:Volcano2
+
+<<tsunami YarnCommand>>
+
+Earthquakes can also cause tsunamis. When the ocean floor moves, it pushes water up, creating giant waves. These waves travel fast and can hit the shore with great force. #line:Volcano3
+So, an earthquake under the ocean can cause both volcanic eruptions and tsunamis, making them very dangerous. That's why it's important to study earthquakes — to understand how they affect our planet and to prepare for their impacts. #line:Volcano4
+
+<<teleportSeismo YarnCommand>>
 
 ===
 
