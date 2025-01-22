@@ -12,6 +12,8 @@ public class SeismoCube : MonoBehaviour
     public GameObject seismoCube1, seismoCube2, seismoCube3;
     public float maxRaycastDistance = 10f;//max distance
 
+    public AudioSource buttonAudio1, buttonAudio2, buttonAudio3, buttonAudio4;
+
     private void Start()
     {
 
@@ -25,6 +27,7 @@ public class SeismoCube : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Button1")) //check if hit object is tagged as "Button"
                 {
+                    buttonAudio1.Play();
                     highIntensityScreen.SetActive(false);
                     lowIntensityScreen.SetActive(true);
                     mediumIntensityScreen.SetActive(false);
@@ -34,6 +37,7 @@ public class SeismoCube : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Button2"))
                 {
+                    buttonAudio2.Play();
                     highIntensityScreen.SetActive(false);
                     lowIntensityScreen.SetActive(false);
                     mediumIntensityScreen.SetActive(true);
@@ -43,6 +47,7 @@ public class SeismoCube : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Button3"))
                 {
+                    buttonAudio3.Play();
                     highIntensityScreen.SetActive(true);
                     lowIntensityScreen.SetActive(false);
                     mediumIntensityScreen.SetActive(false);
@@ -52,6 +57,7 @@ public class SeismoCube : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Button4"))
                 {
+                    buttonAudio4.Play();
                     highIntensityScreen.SetActive(false);
                     lowIntensityScreen.SetActive(false);
                     mediumIntensityScreen.SetActive(false);

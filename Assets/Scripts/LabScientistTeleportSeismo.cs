@@ -54,6 +54,7 @@ public class LabScientistTeleportSeismo : MonoBehaviour
 
         // Step 3: Teleport the Lab Scientist to the target position
         scientist.transform.position = target.position;
+        scientist.transform.rotation = target.rotation;
 
         // Step 4: Play VFX at the target position
         PlayVFX(scientist.transform.position);

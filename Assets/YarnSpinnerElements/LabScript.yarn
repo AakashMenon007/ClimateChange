@@ -44,7 +44,29 @@ A seismograph is a special tool we use to measure earthquakes. It works like thi
 Scientists use these recordings to figure out how powerful an earthquake is and where it started. It's a really important way to understand what's happening deep underground. #line:LabScientistSeismo2
 Try pushing the green buttons to see a visualisation of this! #line:LabScientistSeismo3
 
+<<teleportEnd YarnCommand>>
+
 ===
 
+title: End
+tags:
+---
+
+Please, listen to me. The choices we make every day are destroying our planet. Earthquakes, volcanoes, tsunamis—they are natural disasters, but we are making them worse. We are the ones fueling the chaos. #line:End1
+<<slide1 YarnCommand>>
+
+Did you know that earthquakes caused over 1.3 million deaths in the past two decades? Entire cities reduced to rubble, families torn apart, children left orphaned. And when those quakes trigger tsunamis, the devastation is unimaginable. In 2004, a single tsunami killed over 230,000 people in one day. #line:End2
+<<slide2 YarnCommand>>
+
+And volcanoes? When they erupt, they don't just destroy everything in their path—they poison the air, making it unbreathable. The ash and gases can cool the planet temporarily, but they also disrupt ecosystems for years. People lose their homes, their lives, their futures. #line:End3
+
+But here's the truth—climate change is making it worse. Rising temperatures melt glaciers, increasing pressure on tectonic plates. Shifting sea levels destabilize fault lines, setting the stage for more frequent disasters. We are accelerating the destruction with our actions. #line:End4
+<<slide3 YarnCommand>>
+
+Would you still drive your car everywhere if you knew it was contributing to a disaster that could kill thousands? Would you still waste electricity when it's powered by fossil fuels that heat the planet? Would you still choose convenience over sustainability, knowing it's costing people their lives? #line:End5
+
+How much longer can we look away? How many lives must be lost before we take responsibility? Please, for the sake of the future, for the sake of every life on this fragile planet—make a change today. Small steps can save lives. The power is in your hands. #line:End6
+
+===
 
 
