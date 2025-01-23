@@ -67,6 +67,15 @@ Would you still drive your car everywhere if you knew it was contributing to a d
 
 How much longer can we look away? How many lives must be lost before we take responsibility? Please, for the sake of the future, for the sake of every life on this fragile planet—make a change today. Small steps can save lives. The power is in your hands. #line:End6
 
+Come on now, let's get you to experience how an earthquake feels. Brace yourself, it's going to be terrifying. #line:End7
+
+<<teleportEarthquake YarnCommand>>
 ===
 
+title: Earthquake
+tags:
+---
 
+Push the button to teleport to a city and experience earthquakes. #line:Earthquake
+
+===
