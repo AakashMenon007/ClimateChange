@@ -17,6 +17,7 @@ public class LabScientistTeleportVolcano : MonoBehaviour
     public ParticleSystem lava1, lava2, lava3, smoke;
     public AudioSource volcanoAudio;
     public GameObject volcano;
+    public AudioSource teleportAudio;
 
     private void Start()
     {
@@ -58,6 +59,7 @@ public class LabScientistTeleportVolcano : MonoBehaviour
 
         // Step 1: Play VFX at the current position
         PlayVFX(scientist.transform.position);
+        teleportAudio.Play();
 
         // Step 2: Wait for the duration of the VFX before teleporting
         yield return new WaitForSeconds(GetVFXDuration());
@@ -65,6 +67,7 @@ public class LabScientistTeleportVolcano : MonoBehaviour
         // Step 3: Teleport the Lab Scientist to the target position
         scientist.transform.position = target.position;
         scientist.transform.rotation = target.rotation;
+        teleportAudio.Play();
 
         // Step 4: Play VFX at the target position
         PlayVFX(scientist.transform.position);

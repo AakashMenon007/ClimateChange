@@ -10,6 +10,8 @@ public class LabScientistTeleportSeismo : MonoBehaviour
 
     private NPC3D npc3D;
 
+    public AudioSource teleportAudio;
+
     private void Start()
     {
         if (target == null)
@@ -48,6 +50,7 @@ public class LabScientistTeleportSeismo : MonoBehaviour
 
         // Step 1: Play VFX at the current position
         PlayVFX(scientist.transform.position);
+        teleportAudio.Play();
 
         // Step 2: Wait for the duration of the VFX before teleporting
         yield return new WaitForSeconds(GetVFXDuration());
@@ -58,6 +61,7 @@ public class LabScientistTeleportSeismo : MonoBehaviour
 
         // Step 4: Play VFX at the target position
         PlayVFX(scientist.transform.position);
+        teleportAudio.Play();
 
         //Step 5: Update the talkToNode in NPC3D AFTER teleportation
         if (npc3D != null)
