@@ -15,6 +15,8 @@ public class LabScientistTeleportVolcano : MonoBehaviour
     public VideoPlayer tsunamiVideo;
     public GameObject screen;
     public ParticleSystem lava1, lava2, lava3, smoke;
+    public AudioSource volcanoAudio;
+    public GameObject volcano;
 
     private void Start()
     {
@@ -109,6 +111,8 @@ public class LabScientistTeleportVolcano : MonoBehaviour
         lava2.Play();
         lava3.Play();
         smoke.Play();
+        volcano.GetComponent<Animator>().enabled = true;
+        volcanoAudio.Play();
     }
 
     [YarnCommand("tsunami")]
