@@ -110,4 +110,19 @@ public class MidFrequencyEarthquake : MonoBehaviour
             Debug.Log("Shaking camera with intensity: " + shakeIntensity);
         }
     }
+
+    public void EmergencyStop()
+    {
+        Debug.Log("Emergency Stop Triggered: Stopping Earthquake");
+        isEarthquakeActive = false;
+        elapsedTime = 0f;
+        enabled = false; // Disable the script
+
+        // Stop sound effect
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
+    }
+
 }
