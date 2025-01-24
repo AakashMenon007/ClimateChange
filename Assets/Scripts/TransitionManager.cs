@@ -1,53 +1,69 @@
+using System.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR.Interaction.Toolkit;
-using System.Collections;
 
-public class PokeButtonSceneTransitionWithFade : MonoBehaviour
+public class TransitionManager : MonoBehaviour
 {
-    public string targetScene; // Name of the scene to transition to
-    public CanvasGroup fadeCanvasGroup; // Canvas Group for the fade effect
-    public float fadeDuration = 1f; // Duration of the fade effect
+    private static Vector3 savedPlayerPosition; // To save the player's position
 
-    private bool isTransitioning = false;
-
-    // Called when the button is "pressed" or "selected"
-    public void OnPokeButtonPressed()
+    // Save the player's position and transition to another scene
+    public void SavePositionAndLoadCityScene(GameObject player)
     {
-        if (!isTransitioning)
+        savedPlayerPosition = player.transform.position; // Save player's position
+        string sceneName = "CityScene";
+
+        if (Application.CanStreamedLevelBeLoaded(sceneName))
         {
-            StartCoroutine(TransitionToScene());
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogError($"Scene '{sceneName}' is not in the build settings!");
         }
     }
 
-    private IEnumerator TransitionToScene()
+    // Load "Lab Master 2" and restore the player's position
+    public void LoadLabMasterScene(GameObject player)
     {
-        isTransitioning = true;
+        string sceneName = "Lab Master 2";
 
-        // Step 1: Fade to black
-        yield return StartCoroutine(Fade(1f));
-
-        // Step 2: Load the target scene
-        SceneManager.LoadScene(targetScene);
-
-        // Step 3: Fade back in
-        yield return StartCoroutine(Fade(0f));
-
-        isTransitioning = false;
+        if (Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            SceneManager.sceneLoaded += (scene, mode) =>
+            {
+                if (scene.name == sceneName)
+                {
+                    player.transform.position = savedPlayerPosition; // Restore position
+                    SceneManager.sceneLoaded -= null; // Remove event listener after restoring
+                }
+            };
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogError($"Scene '{sceneName}' is not in the build settings!");
+        }
     }
 
-    private IEnumerator Fade(float targetAlpha)
+    // GUI for buttons to trigger scene transitions
+    private void OnGUI()
     {
-        float startAlpha = fadeCanvasGroup.alpha;
-        float timer = 0f;
+        GameObject player = GameObject.FindGameObjectWithTag("Player"); // Find player by tag
 
-        while (timer < fadeDuration)
+        if (player == null)
         {
-            fadeCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, timer / fadeDuration);
-            timer += Time.deltaTime;
-            yield return null;
+            GUILayout.Label("Player not found! Ensure the player GameObject has the tag 'Player'.");
+            return;
         }
 
-        fadeCanvasGroup.alpha = targetAlpha;
+        if (GUILayout.Button("Save Position & Transition to CityScene"))
+        {
+            SavePositionAndLoadCityScene(player);
+        }
+
+        if (GUILayout.Button("Transition back to Lab Master 2 at Previous Position"))
+        {
+            LoadLabMasterScene(player);
+        }
     }
 }
