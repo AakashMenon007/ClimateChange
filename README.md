@@ -20,6 +20,10 @@ Feel the intensity of an earthquake in VR, showcasing the real-life impacts of t
 
 ---
 
+![Image](https://github.com/user-attachments/assets/5c41534f-f539-45f7-b14b-09336b7099a0)
+![Image](https://github.com/user-attachments/assets/60886306-d19b-43c9-b2e6-831400fcfa1b)
+![Image](https://github.com/user-attachments/assets/549e7dc9-9a35-4a24-97be-f95d5c508612)
+
 ## 🔧 Technologies Used  
 
 - **Unity**: Core engine for developing the VR experience.  
