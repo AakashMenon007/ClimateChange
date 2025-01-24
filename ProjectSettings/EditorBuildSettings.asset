@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Lab Talha.unity
-    guid: a65000546a6aa294f94cccec25323f02
+    path: Assets/Scenes/startup Scene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/InstructionScene.unity
+    guid: de96cf407bb9410499198fe545df8ff1
+  - enabled: 1
+    path: Assets/Scenes/AboutScene.unity
+    guid: eb995c96d2df2304c901ea045b623c07
+  - enabled: 1
+    path: Assets/Scenes/Lab Master 2.unity
+    guid: 42a1dc313a7a6ab4fa2f71cb9b459475
   - enabled: 1
     path: Assets/Scenes/CityScene.unity
     guid: 3dcf8f3d0775a2540b1a7881ff860176
-  - enabled: 1
-    path: Assets/Scenes/Lab Master.unity
-    guid: f088979fcd20fc84bba88ce72584a44f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
