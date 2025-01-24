@@ -12876,6 +12876,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -240.17, z: 0}
+--- !u!4 &510536346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 657184242222895506, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+  m_PrefabInstance: {fileID: 1064912543}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &516663096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 047e42203e902ab469eb6457c0aa2f8e, type: 3}
@@ -28088,7 +28093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonAction: {fileID: -4124803964850277162, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  rightController: {fileID: 0}
+  rightController: {fileID: 510536346}
   lowIntensityScreen: {fileID: 1336620715}
   mediumIntensityScreen: {fileID: 1899619742}
   highIntensityScreen: {fileID: 221145288}
