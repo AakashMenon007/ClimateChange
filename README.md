@@ -44,7 +44,7 @@ Feel the intensity of an earthquake in VR, showcasing the real-life impacts of t
 ## 🎥 Project Demonstration  
 
 Check out the walkthrough video of the project on YouTube:  
-👉 [Watch the Demo](https://img.youtube.com/vi/WfbEw0BUUVM/0.jpg)](https://youtu.be/WfbEw0BUUVM)
+👉 [![Watch the Demo](https://img.youtube.com/vi/WfbEw0BUUVM/0.jpg)](https://youtu.be/WfbEw0BUUVM)
 
 
 
